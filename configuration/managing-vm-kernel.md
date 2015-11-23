@@ -12,8 +12,8 @@ VM kernel managed by dom0
 By default VM uses kernel provided by dom0. This means that:
 1. You can select kernel version in VM settings
 2. You can modify kernel options in VM settings
-3. You can **not** modify any of above from inside of VM
-4. Installing additional kernel modules in cumbersome
+3. You can **not** modify any of the above from inside of VM
+4. Installing additional kernel modules is cumbersome
 
 To select which kernel given VM will use, you can use either Qubes Manager (VM
 settings, advanced tab), or `qvm-prefs` tool:
@@ -49,7 +49,7 @@ updatevm          : sys-firewall
 Installing different kernel using Qubes kernel package
 ==================================
 
-Kernel for VM is packages by Qubes team in `kernel-qubes-vm` packages. Generally system will keep 3 newest available versions. You can list them with simple `rpm` command:
+Kernel for VM is packages by Qubes team in `kernel-qubes-vm` packages. Generally the system will keep 3 of the newest available versions. You can list them with simple `rpm` command:
 
 ~~~
 [user@dom0 ~]$ rpm -qa 'kernel-qubes-vm*'
@@ -58,8 +58,8 @@ kernel-qubes-vm-3.18.16-3.pvops.qubes.x86_64
 kernel-qubes-vm-3.18.17-4.pvops.qubes.x86_64
 ~~~
 
-If you want more recent version (but not so tested), you can check
-`qubes-dom0-unstable` repository - Qubes team put there such packages. Keep in
+If you want a more recent version (but not so tested), you can check
+`qubes-dom0-unstable` repository - the Qubes team put such packages there. Keep in
 mind that those packages (as the name suggests) may be less stable than the
 default one.
 
@@ -216,7 +216,7 @@ It is possible to use kernel installed in the VM (in most cases - TemplateVM).
 This is possible thanks to PV GRUB2 - GRUB2 running in the VM. To make it happen, you need to:
 
 1. Install PV GRUB2 in dom0 - package is named `grub2-xen`.
-2. Install kernel in the VM. As with all VM software installation - this needs to be done in TemplateVM (of StandaloneVM if you are using one).
+2. Install kernel in the VM. As with all VM software installation - this needs to be done in TemplateVM (or StandaloneVM if you are using one).
 3. Set VM kernel to `pvgrub2` value. You can use `pvgrub2` in selected VMs, not necessary all of them, even when it's template has kernel installed. You can still use dom0-provided kernel for selected VMs.
 
 **WARNING: When using kernel from within VM, `kernelopts` parameter is ignored.**
@@ -315,4 +315,5 @@ In any case you can later access VM logs (especially VM console log
 (`guest-VMNAME.log`). You can always set kernel back to some
 dom0-provided value to fix VM kernel
 installation.
+
 
